@@ -1,0 +1,8 @@
+PyQt6
+PyPDF2
+langchain
+langchain-openai
+langchain-community
+scikit-learn
+numpy
+faiss-cpu
