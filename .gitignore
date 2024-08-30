@@ -1,0 +1,4 @@
+knowledge_base/processed_pdfs.json
+knowledge_base/index.pkl
+knowledge_base/index.faiss
+__pycache__/pdf_qa_app.cpython-310.pyc

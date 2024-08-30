@@ -110,13 +110,15 @@ class PDFQuestionAnsweringApp(QMainWindow):
         self.progress_bar.setVisible(False)
 
     def get_answer(self):
-        question = self.question_input.toPlainText()
-        if not question:
-            self.answer_display.setText("Please enter a question.")
-            return
+        question = self.question_input.toPlainText()  # Changed from text() to toPlainText()
+        self.answer_display.clear()  # Changed from answer_output to answer_display
+        answer = self.qa.answer_question(question, self.update_answer)
+        self.answer_display.append(answer)
 
-        answer = self.qa.answer_question(question)
-        self.answer_display.setText(answer)
+    def update_answer(self, token: str):
+        self.answer_display.insertPlainText(token)  # Changed from answer_output to answer_display
+        self.answer_display.ensureCursorVisible()
+        QApplication.processEvents()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
